@@ -1,3 +1,8 @@
 {
-	"C_Cpp.errorSquiggles": "Disabled"
+	"C_Cpp.errorSquiggles": "Disabled",
+	"files.associations": {
+		"fcntl.h": "c",
+		"unistd.h": "c",
+		"get_next_line.h": "c"
+	}
 }

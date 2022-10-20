@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:15:12 by hozdemir          #+#    #+#             */
-/*   Updated: 2022/10/20 06:39:25 by hozdemir         ###   ########.fr       */
+/*   Updated: 2022/10/20 06:37:35 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_update_line(char *str)
 {
@@ -19,7 +19,7 @@ char	*ft_update_line(char *str)
 	char	*back;
 
 	i = 0;
-	j = 0;
+	j = -1;
 	while (str[i] != '\n' && str[i])
 		i++;
 	if (!*(str + i))
@@ -31,13 +31,9 @@ char	*ft_update_line(char *str)
 	if (!back)
 		return (NULL);
 	i++;
-	while (str[i])
-	{
-		back[j] = str[i];
-		i++;
-		j++;
-	}
-	back[j] = '\0';
+	while (str[++i])
+		back[++j] = str[i];
+	back[++j] = '\0';
 	free(str);
 	return (back);
 }
@@ -102,7 +98,7 @@ char	*ft_strjoin(char *str, char *str2)
 	int		i;
 	int		j;
 
-	i = 0;
+	i = -1;
 	j = 0;
 	if (!str)
 	{
@@ -112,11 +108,8 @@ char	*ft_strjoin(char *str, char *str2)
 	back = malloc((ft_strlen(str) + ft_strlen(str2) + 1) * sizeof(char));
 	if (!back)
 		return (NULL);
-	while (str[i])
-	{
-		back[i] = str[i];
-		i++;
-	}
+	while (str[++i])
+		*(back + i) = *(str + i);
 	while (*(str2 + j))
 	{
 		*(back + i + j) = *(str2 + j);
