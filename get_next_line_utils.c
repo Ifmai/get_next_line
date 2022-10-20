@@ -6,7 +6,7 @@
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 15:15:12 by hozdemir          #+#    #+#             */
-/*   Updated: 2022/10/20 06:39:25 by hozdemir         ###   ########.fr       */
+/*   Updated: 2022/10/20 06:51:20 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_update_line(char *str)
 	char	*back;
 
 	i = 0;
-	j = 0;
+	j = -1;
 	while (str[i] != '\n' && str[i])
 		i++;
 	if (!*(str + i))
@@ -33,11 +33,10 @@ char	*ft_update_line(char *str)
 	i++;
 	while (str[i])
 	{
-		back[j] = str[i];
+		back[++j] = str[i];
 		i++;
-		j++;
 	}
-	back[j] = '\0';
+	back[++j] = '\0';
 	free(str);
 	return (back);
 }
@@ -103,7 +102,7 @@ char	*ft_strjoin(char *str, char *str2)
 	int		j;
 
 	i = 0;
-	j = 0;
+	j = -1;
 	if (!str)
 	{
 		str = malloc(1 * sizeof(char));
@@ -117,11 +116,8 @@ char	*ft_strjoin(char *str, char *str2)
 		back[i] = str[i];
 		i++;
 	}
-	while (*(str2 + j))
-	{
+	while (str2[++j])
 		*(back + i + j) = *(str2 + j);
-		j++;
-	}
 	*(back + i + j) = '\0';
 	free(str);
 	return (back);
