@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hozdemir <hozdemir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 06:28:33 by hozdemir          #+#    #+#             */
-/*   Updated: 2022/10/20 06:29:02 by hozdemir         ###   ########.fr       */
+/*   Created: 2022/10/20 16:46:31 by acerrah           #+#    #+#             */
+/*   Updated: 2022/10/24 13:46:41 by hozdemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,19 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <stdio.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 31
+# ifndef SIZE
+#  define BUFFER_SIZE 42
 # endif
 
 char	*get_next_line(int fd);
-char	*get_next_line_read(char *str, int fd, int line_size);
-int		ft_strchr(char *s, int c);
-int		ft_strlen(char *s);
-char	*ft_strjoin(char *str, char *str2);
-char	*ft_get_line(char *str);
-char	*ft_update_line(char *str);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+size_t	ft_strlen(const char *str);
+char	*ft_strdup(const char *s1);
+char	*get_left(char *left);
+char	*get_line(char *buffer);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char *s1, char const *s2);
+char	*get_buffer(int fd, char *left_str);
 
 #endif
